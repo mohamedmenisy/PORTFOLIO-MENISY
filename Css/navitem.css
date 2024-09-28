@@ -5,3 +5,8 @@
     color: white;
 }
 
+@media (max-width:767px) {
+    .navbar {
+        background-color: black !important;
+    }
+}

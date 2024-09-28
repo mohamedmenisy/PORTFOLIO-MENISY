@@ -17,7 +17,6 @@ var typed = new Typed('.typedEll', {
 // ------------------change navbar-background-color
 window.addEventListener('scroll', function() {
     const navbar = document.querySelector('.navbar');
-    const navbar_a = document.querySelector('.navbar a');
     if (window.scrollY >= 100) {
         navbar.style.backgroundColor = 'black';
 
@@ -31,16 +30,18 @@ window.addEventListener('scroll', function() {
 
 
 // -------------------change bg-video
+
 let backgrounds = [
     {
         name:"waves",
-        src:"https://wpriverthemes.com/drake/wp-content/themes/drake/assets/images/video3.mp4"
+        src:"Images/video3.gif"
     },
     {
         name:"balle",
-        src:"https://wpriverthemes.com/drake/wp-content/themes/drake/assets/images/video2.mp4"
+        src:"Images/video2.gif"
     }
     ]
+
 let loading = document.querySelector(".loading");
 let cbx = document.querySelector("#cbx-51");
 cbx.addEventListener('click',()=>{
@@ -50,23 +51,22 @@ cbx.addEventListener('click',()=>{
     })
 
     loading.style.display="flex";
-    let videoelement= document.querySelector("video")
-    let videoid =videoelement.id;
+    let imgelement= document.querySelector(".bgimg");
+    let imgid =imgelement.id;
 
-    if (videoid == "waves") {
-        videoelement.src=backgrounds[1].src;
-        videoelement.id =backgrounds[1].name
+    if (imgid == "waves") {
+        imgelement.src=backgrounds[1].src;
+        imgelement.id =backgrounds[1].name
     }else{
-        videoelement.src=backgrounds[0].src;
-        videoelement.id =backgrounds[0].name
+        imgelement.src=backgrounds[0].src;
+        imgelement.id =backgrounds[0].name
     }
     setTimeout(() => {
         loading.style.display="none";
     }, 3000);
 
 });
-let videoelement= document.querySelector("video")
-videoelement.play();
+
 
 
 // ---------------------------------------------projects
@@ -189,29 +189,31 @@ let BackEnd =[
         DemoLink:"https://github.com/mohamedmenisy/StellaITI"
     },
 ]
-let li = document.querySelectorAll(".ProjectTypes ul li")
-li[0].style.borderBottom="2px solid white";
+let items = document.querySelectorAll(".ProjectTypes .item")
+items[0].style.borderBottom="2px solid white";
 
-li.forEach(element => {
+items.forEach(element => {
     element.addEventListener('click',()=>{
-        if (element.innerHTML == "HTML / CSS / JS") {
+        console.log();
+
+        if (element.id == "HTML / CSS / JS") {
             projects=JS;
 
 
         }
-        if (element.innerHTML == "REACTJS") {
+        if (element.id == "REACTJS") {
             projects=REACTJS;
 
 
         }
-        if (element.innerHTML == "ANGULAR") {
+        if (element.id == "ANGULAR") {
             projects=ANGULAR;
 
         }
-        if(element.innerHTML == "BACKEND"){
+        if(element.id == "BACKEND"){
             projects=BackEnd;
         }
-        li.forEach(el2 => {
+        items.forEach(el2 => {
             el2.style.borderBottom="none";
 
         });
